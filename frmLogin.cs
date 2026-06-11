@@ -5,8 +5,8 @@ namespace prySistemaEscolar
         public frmLogin()
         {
             InitializeComponent();
-        }
 
+        }
         private void btnAcceder_Click(object sender, EventArgs e)
         {
             try
@@ -27,6 +27,7 @@ namespace prySistemaEscolar
                 MessageBox.Show(ex.Message, "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
