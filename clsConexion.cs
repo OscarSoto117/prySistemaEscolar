@@ -16,8 +16,7 @@ namespace prySistemaEscolar
         private string password = "tercero@B";
         private string puerto = "3306";
 
-        private string cadenaConexion => $"server={host};database={db};user{usuario};password{password};port{puerto}";
-
+        private string cadenaConexion => $"server={host};database={db};user={usuario};password={password};port={puerto}";
         public MySqlConnection AbrirConexion()
         {
             var conexion = new MySqlConnection(cadenaConexion);

@@ -123,6 +123,7 @@
             pcbSalir.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbSalir.TabIndex = 6;
             pcbSalir.TabStop = false;
+            pcbSalir.Click += pcbSalir_Click;
             pcbSalir.MouseDown += pcbGeneral_MouseDown;
             pcbSalir.MouseUp += pcbGeneral_MouseUp;
             // 

@@ -20,8 +20,7 @@ namespace prySistemaEscolar
                 clsConexion conexionBD = new clsConexion();
                 using (var conexion = conexionBD.AbrirConexion())
                 {
-                    string sql = "SELCT perfil FROM tblUsuarios " +
-                                 "WHERE nombreUsuario = @usuario AND password = @password;";
+                    string sql = "SELECT perfil FROM tblUsuarios " + "WHERE nombreUsuario = @usuario AND password = @password;";
                     using (var consulta = new MySqlCommand(sql, conexion))
                     {
                         consulta.Parameters.AddWithValue("@usuario", usuario);
@@ -31,7 +30,7 @@ namespace prySistemaEscolar
                         {
                             if (resultado.Read())
                             {
-                                perfil = resultado.GetString("vchperfil");
+                                perfil = resultado.GetString("perfil");
                                 MessageBox.Show("Tu perfil es: " + perfil, "Sistema");
                                 return true;
                             }
