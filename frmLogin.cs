@@ -7,7 +7,7 @@ namespace prySistemaEscolar
             InitializeComponent();
 
         }
-        private void btnAcceder_Click(object sender, EventArgs e)
+        private void btnAcceder_Click_1(object sender, EventArgs e)
         {
             try
             {
@@ -28,10 +28,10 @@ namespace prySistemaEscolar
             }
         }
 
-
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit(); // Cierra toda la aplicación
+
         }
     }
 }

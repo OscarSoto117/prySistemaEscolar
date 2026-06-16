@@ -11,7 +11,33 @@ namespace prySistemaEscolar
 
         public string Usuario { get => usuario; set => usuario = value; }
         public string Password { get => password; set => password = value; }
-        public static string perfil;
+        //Atributos estaticos
+        private static string perfil;
+        private static bool esAdministrador;
+        private static bool esDocente;
+
+        public void AsignarPermisos()
+        {
+            switch(perfil)
+            {
+                case "Administrador":
+                    esAdministrador = true;
+                    esDocente = false;
+                    break;
+                case "Docente":
+                    esAdministrador = false;
+                    esDocente = true;
+                    break;
+                default:
+                    esAdministrador = false;
+                    esDocente = false;
+                    break;
+            }
+        }
+
+        //Propiedades estaticas
+        public static bool EsAdministrador { get => esAdministrador;}
+        public static bool EsDocente { get => esDocente; }
 
         public bool ValidarAcceso()
         {
@@ -31,7 +57,13 @@ namespace prySistemaEscolar
                             if (resultado.Read())
                             {
                                 perfil = resultado.GetString("perfil");
-                                MessageBox.Show("Tu perfil es: " + perfil, "Sistema");
+                                AsignarPermisos();
+                                if (!esAdministrador && !esDocente)
+                                {
+                                    throw new Exception($"El perfil {perfil} no tiene permisos para acceder");
+                                }
+
+                                MessageBox.Show("Tu perfil es: " + perfil, "sistema");
                                 return true;
                             }
                             else
