@@ -26,11 +26,13 @@ namespace prySistemaEscolar
             {
                 MessageBox.Show(ex.Message, "Error de autenticación", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Application.Exit(); // Cierra toda la aplicación
+
         }
     }
 }
