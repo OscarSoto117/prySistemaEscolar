@@ -59,5 +59,15 @@ namespace prySistemaEscolar.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _1781803542620 {
+            get {
+                object obj = ResourceManager.GetObject("1781803542620", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
