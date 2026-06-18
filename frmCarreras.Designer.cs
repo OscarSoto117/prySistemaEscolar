@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCarreras));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             pcbLogo = new PictureBox();
             lblTitulo = new Label();
             pnlAgrupaControles = new Panel();
@@ -73,9 +75,9 @@
             pnlAgrupaControles.Controls.Add(btnNuevo);
             pnlAgrupaControles.Controls.Add(txtDescripcion);
             pnlAgrupaControles.Controls.Add(txtNombre);
-            pnlAgrupaControles.Location = new Point(219, 93);
+            pnlAgrupaControles.Location = new Point(155, 93);
             pnlAgrupaControles.Name = "pnlAgrupaControles";
-            pnlAgrupaControles.Size = new Size(638, 202);
+            pnlAgrupaControles.Size = new Size(739, 202);
             pnlAgrupaControles.TabIndex = 2;
             // 
             // btnEliminar
@@ -111,7 +113,7 @@
             txtDescripcion.Location = new Point(96, 77);
             txtDescripcion.Name = "txtDescripcion";
             txtDescripcion.PlaceholderText = "Escribir una descripcion de la carrera";
-            txtDescripcion.Size = new Size(441, 35);
+            txtDescripcion.Size = new Size(557, 35);
             txtDescripcion.TabIndex = 1;
             txtDescripcion.TextChanged += textBox2_TextChanged;
             // 
@@ -121,22 +123,41 @@
             txtNombre.Location = new Point(96, 26);
             txtNombre.Name = "txtNombre";
             txtNombre.PlaceholderText = "Escribir el nombre de la carrera";
-            txtNombre.Size = new Size(441, 35);
+            txtNombre.Size = new Size(557, 35);
             txtNombre.TabIndex = 0;
             // 
             // dgvCarreras
             // 
+            dgvCarreras.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.GreenYellow;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvCarreras.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvCarreras.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvCarreras.Location = new Point(219, 348);
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvCarreras.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvCarreras.EnableHeadersVisualStyles = false;
+            dgvCarreras.Location = new Point(155, 348);
             dgvCarreras.Name = "dgvCarreras";
-            dgvCarreras.Size = new Size(638, 169);
+            dgvCarreras.RowTemplate.Height = 35;
+            dgvCarreras.Size = new Size(739, 169);
             dgvCarreras.TabIndex = 3;
             dgvCarreras.CellContentClick += dataGridView1_CellContentClick;
             // 
             // txtBuscarCarrera
             // 
             txtBuscarCarrera.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            txtBuscarCarrera.Location = new Point(684, 301);
+            txtBuscarCarrera.Location = new Point(721, 301);
             txtBuscarCarrera.Name = "txtBuscarCarrera";
             txtBuscarCarrera.PlaceholderText = "Buscar Carrera";
             txtBuscarCarrera.Size = new Size(173, 35);
