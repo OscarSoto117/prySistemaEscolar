@@ -17,7 +17,30 @@ namespace prySistemaEscolar
             carreras = new clsCarreras();
             dgvCarreras.DataSource = null;
             dgvCarreras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dgvCarreras.DataSource = carreras.CargarDataGrid();
+            try
+            {
+                dgvCarreras.DataSource = carreras.CargarDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtBuscarCarrera_TextChanged(object sender, EventArgs e)
+        {
+            carreras = new clsCarreras();
+            dgvCarreras.DataSource = null;
+            dgvCarreras.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            try
+            {
+                carreras.NombreCarrera = txtBuscarCarrera.Text;
+                dgvCarreras.DataSource = carreras.ConsultarCoincidencias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
