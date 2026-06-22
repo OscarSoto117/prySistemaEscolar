@@ -83,10 +83,10 @@
             // btnGuardar
             // 
             btnGuardar.Image = (Image)resources.GetObject("btnGuardar.Image");
-            btnGuardar.Location = new Point(341, 173);
+            btnGuardar.Location = new Point(356, 173);
             btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(156, 68);
+            btnGuardar.Size = new Size(150, 68);
             btnGuardar.TabIndex = 4;
             btnGuardar.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +102,8 @@
             // 
             // btnNuevo
             // 
-            btnNuevo.BackColor = SystemColors.Control;
+            btnNuevo.BackColor = SystemColors.ControlDark;
+            btnNuevo.BackgroundImage = (Image)resources.GetObject("btnNuevo.BackgroundImage");
             btnNuevo.Image = (Image)resources.GetObject("btnNuevo.Image");
             btnNuevo.Location = new Point(110, 173);
             btnNuevo.Margin = new Padding(3, 4, 3, 4);
