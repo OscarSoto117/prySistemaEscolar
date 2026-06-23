@@ -109,7 +109,7 @@ namespace prySistemaEscolar
                             break;
                         //Registro viejo/old
                         case 1:
-                            string sqlA = "UPDATE tblcarreras C SET C.nombreCarrera = @nombreCarrera, C.descripcion = @descripcionCarrera WHERE C.idCarrera = idCarrera;";
+                            string sqlA = "UPDATE tblcarreras C SET C.nombreCarrera = @nombreCarrera, C.descripcion = @descripcionCarrera WHERE C.idCarrera = @idCarrera;"; 
                             using (comando = new MySqlCommand(sqlA, conexion))
                             {
                                 comando.Parameters.AddWithValue("idCarrera", idCarrera);
