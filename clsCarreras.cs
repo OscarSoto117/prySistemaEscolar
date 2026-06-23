@@ -24,6 +24,8 @@ namespace prySistemaEscolar
 
         //Propiedad para el atributo buscarCarrera
         public string NombreCarrera { get => nombreCarrera; set => nombreCarrera = value; }
+        public string DescripcionCarrera { get => descripcionCarrera; set => descripcionCarrera = value; }
+        public int IdCarrera { get => idCarrera; set => idCarrera = value; }
 
         //Metodo para cargar datos en el DataGrid
         public DataTable CargarDataGrid()
@@ -107,7 +109,7 @@ namespace prySistemaEscolar
                             break;
                         //Registro viejo/old
                         case 1:
-                            string sqlA = "UPDATE tblcarreras C SET C.nombreCarrera = @nombreCarrera, C.descipcion = @descripcionCarrera WHERE C.idCarrera = idCarrera;";
+                            string sqlA = "UPDATE tblcarreras C SET C.nombreCarrera = @nombreCarrera, C.descripcion = @descripcionCarrera WHERE C.idCarrera = idCarrera;";
                             using (comando = new MySqlCommand(sqlA, conexion))
                             {
                                 comando.Parameters.AddWithValue("idCarrera", idCarrera);
