@@ -62,13 +62,14 @@ namespace prySistemaEscolar
             try
             {
                 int tipoOperacion = idCarrera == 0 ? 0 : 1;
-                carreras.IdCarrera= idCarrera;
-                carreras.NombreCarrera= txtNombre.Text;
+                carreras.IdCarrera = idCarrera;
+                carreras.NombreCarrera = txtNombre.Text;
                 carreras.DescripcionCarrera = txtDescripcion.Text;
                 string msg = carreras.GuardarActualizarRegistros(tipoOperacion);
                 MessageBox.Show(msg);
                 CargarGrid();
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
@@ -76,10 +77,29 @@ namespace prySistemaEscolar
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            idCarrera = 0; 
+            idCarrera = 0;
             txtDescripcion.Clear();
             txtNombre.Clear();
             txtNombre.Focus();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                carreras.IdCarrera = idCarrera;
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato sdelccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                if (resp == DialogResult.Yes) 
+                {
+                    string msg = carreras.Eliminar();
+                    MessageBox.Show(msg);
+                    CargarGrid();
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
