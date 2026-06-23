@@ -10,6 +10,7 @@ namespace prySistemaEscolar
 {
     public partial class frmCarreras : Form
     {
+        int idCarrera;
         clsCarreras carreras;
         public frmCarreras()
         {
@@ -41,6 +42,26 @@ namespace prySistemaEscolar
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void dgvCarreras_SelectionChanged(object sender, EventArgs e)
+        {
+            //Campo de referencia para actualizar y eliminar registros(oculto)
+            idCarrera = int.Parse(dgvCarreras.CurrentRow.Cells[0].Value.ToString());
+            //Campos de referencia para actualizar y eliminar registros(visible)
+            txtNombre.Text = dgvCarreras.CurrentRow.Cells[1].Value.ToString();
+            txtDescripcion.Text = dgvCarreras.CurrentRow.Cells[2].Value.ToString();
+        }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+            int tipoOperacion =idCarrera== 0 ? 0 : 1;
+            carreras.GuardarActualizarRegistros(tipoOperacion);
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            idCarrera = 0;
         }
     }
 }
