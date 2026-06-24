@@ -207,6 +207,7 @@
             txtBuscarTutores.PlaceholderText = "Buscar Tutores";
             txtBuscarTutores.Size = new Size(168, 35);
             txtBuscarTutores.TabIndex = 6;
+            txtBuscarTutores.TextChanged += txtBuscarTutores_TextChanged;
             // 
             // frmTutores
             // 

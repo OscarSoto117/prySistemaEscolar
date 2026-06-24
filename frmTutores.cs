@@ -6,7 +6,7 @@ namespace prySistemaEscolar
 {
     public partial class frmTutores : Form
     {
-        clsTutores objetoTutor = new clsTutores();
+        clsTutores tutor = new clsTutores();
         int tipoOperacion = 0;
 
         public frmTutores()
@@ -18,7 +18,7 @@ namespace prySistemaEscolar
         {
             try
             {
-                dgvTutores.DataSource = objetoTutor.CargarDataGrid();
+                dgvTutores.DataSource = tutor.CargarDataGrid();
             }
             catch (Exception ex) { MessageBox.Show("Error de conexión: " + ex.Message); }
         }
@@ -27,16 +27,16 @@ namespace prySistemaEscolar
         {
             try
             {
-                objetoTutor.NombreTutor = txtNombre.Text;
-                objetoTutor.Parentesco = txtParentesco.Text;
-                objetoTutor.Direccion = txtDireccion.Text;
-                objetoTutor.Telefono = txtTelefono.Text;
-                objetoTutor.Correo = txtCorreo.Text;
+                tutor.NombreTutor = txtNombre.Text;
+                tutor.Parentesco = txtParentesco.Text;
+                tutor.Direccion = txtDireccion.Text;
+                tutor.Telefono = txtTelefono.Text;
+                tutor.Correo = txtCorreo.Text;
 
-                string mensaje = objetoTutor.GuardarActualizarRegistros(tipoOperacion);
+                string mensaje = tutor.GuardarActualizarRegistros(tipoOperacion);
                 MessageBox.Show(mensaje, "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                dgvTutores.DataSource = objetoTutor.CargarDataGrid();
+                dgvTutores.DataSource = tutor.CargarDataGrid();
                 limpiar();
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -44,7 +44,7 @@ namespace prySistemaEscolar
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            if (objetoTutor.IdTutor == 0)
+            if (tutor.IdTutor == 0)
             {
                 MessageBox.Show("Seleccione un tutor de la tabla primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
@@ -54,9 +54,9 @@ namespace prySistemaEscolar
             {
                 try
                 {
-                    string mensaje = objetoTutor.Eliminar();
+                    string mensaje = tutor.Eliminar();
                     MessageBox.Show(mensaje, "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvTutores.DataSource = objetoTutor.CargarDataGrid();
+                    dgvTutores.DataSource = tutor.CargarDataGrid();
                     limpiar();
                 }
                 catch (Exception ex) { MessageBox.Show(ex.Message); }
@@ -74,7 +74,7 @@ namespace prySistemaEscolar
             {
                 DataGridViewRow fila = dgvTutores.Rows[e.RowIndex];
 
-                objetoTutor.IdTutor = Convert.ToInt32(fila.Cells["Clave"].Value);
+                tutor.IdTutor = Convert.ToInt32(fila.Cells["Clave"].Value);
                 txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
                 txtParentesco.Text = fila.Cells["Parentesco"].Value.ToString();
                 txtDireccion.Text = fila.Cells["Dirección"].Value.ToString();
@@ -94,11 +94,26 @@ namespace prySistemaEscolar
             txtCorreo.Clear();
 
             tipoOperacion = 0;
-            objetoTutor.IdTutor = 0;
+            tutor.IdTutor = 0;
             txtNombre.Focus();
         }
 
         private void lblTitulo_Click(object sender, EventArgs e) { }
         private void pnlAgrupaControles_Paint(object sender, PaintEventArgs e) { }
+
+        private void txtBuscarTutores_TextChanged(object sender, EventArgs e)
+        {
+            dgvTutores.DataSource = null;
+            dgvTutores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            try
+            {
+                tutor.NombreTutor = txtBuscarTutores.Text;
+                dgvTutores.DataSource = tutor.ConsultarCoincidencias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
