@@ -126,7 +126,7 @@
             // pcbSalir
             // 
             pcbSalir.Image = (Image)resources.GetObject("pcbSalir.Image");
-            pcbSalir.Location = new Point(60, 591);
+            pcbSalir.Location = new Point(60, 573);
             pcbSalir.Margin = new Padding(3, 2, 3, 2);
             pcbSalir.Name = "pcbSalir";
             pcbSalir.Size = new Size(380, 78);
@@ -150,7 +150,7 @@
             // pcbTutores
             // 
             pcbTutores.Image = (Image)resources.GetObject("pcbTutores.Image");
-            pcbTutores.Location = new Point(60, 476);
+            pcbTutores.Location = new Point(60, 478);
             pcbTutores.Margin = new Padding(3, 2, 3, 2);
             pcbTutores.Name = "pcbTutores";
             pcbTutores.Size = new Size(380, 78);
