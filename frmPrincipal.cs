@@ -61,5 +61,10 @@ namespace prySistemaEscolar
             principal = new clsPrincipal();
             principal.agregarAlContenedor(new frmCarreras(), pnlContenedor);
         }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
