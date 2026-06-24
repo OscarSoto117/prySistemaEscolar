@@ -76,7 +76,7 @@
             pcbAlumnos.Location = new Point(60, 104);
             pcbAlumnos.Margin = new Padding(3, 2, 3, 2);
             pcbAlumnos.Name = "pcbAlumnos";
-            pcbAlumnos.Size = new Size(380, 98);
+            pcbAlumnos.Size = new Size(380, 78);
             pcbAlumnos.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbAlumnos.TabIndex = 2;
             pcbAlumnos.TabStop = false;
@@ -86,10 +86,10 @@
             // pcbCarreras
             // 
             pcbCarreras.Image = (Image)resources.GetObject("pcbCarreras.Image");
-            pcbCarreras.Location = new Point(60, 206);
+            pcbCarreras.Location = new Point(60, 195);
             pcbCarreras.Margin = new Padding(3, 2, 3, 2);
             pcbCarreras.Name = "pcbCarreras";
-            pcbCarreras.Size = new Size(380, 98);
+            pcbCarreras.Size = new Size(380, 78);
             pcbCarreras.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbCarreras.TabIndex = 3;
             pcbCarreras.TabStop = false;
@@ -100,10 +100,10 @@
             // pcbDocentes
             // 
             pcbDocentes.Image = (Image)resources.GetObject("pcbDocentes.Image");
-            pcbDocentes.Location = new Point(60, 308);
+            pcbDocentes.Location = new Point(60, 289);
             pcbDocentes.Margin = new Padding(3, 2, 3, 2);
             pcbDocentes.Name = "pcbDocentes";
-            pcbDocentes.Size = new Size(380, 98);
+            pcbDocentes.Size = new Size(380, 78);
             pcbDocentes.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbDocentes.TabIndex = 4;
             pcbDocentes.TabStop = false;
@@ -113,10 +113,10 @@
             // pcbUsuarios
             // 
             pcbUsuarios.Image = (Image)resources.GetObject("pcbUsuarios.Image");
-            pcbUsuarios.Location = new Point(60, 410);
+            pcbUsuarios.Location = new Point(60, 384);
             pcbUsuarios.Margin = new Padding(3, 2, 3, 2);
             pcbUsuarios.Name = "pcbUsuarios";
-            pcbUsuarios.Size = new Size(380, 98);
+            pcbUsuarios.Size = new Size(380, 78);
             pcbUsuarios.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbUsuarios.TabIndex = 5;
             pcbUsuarios.TabStop = false;
@@ -126,10 +126,10 @@
             // pcbSalir
             // 
             pcbSalir.Image = (Image)resources.GetObject("pcbSalir.Image");
-            pcbSalir.Location = new Point(60, 613);
+            pcbSalir.Location = new Point(60, 591);
             pcbSalir.Margin = new Padding(3, 2, 3, 2);
             pcbSalir.Name = "pcbSalir";
-            pcbSalir.Size = new Size(380, 98);
+            pcbSalir.Size = new Size(380, 78);
             pcbSalir.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbSalir.TabIndex = 6;
             pcbSalir.TabStop = false;
@@ -150,14 +150,16 @@
             // pcbTutores
             // 
             pcbTutores.Image = (Image)resources.GetObject("pcbTutores.Image");
-            pcbTutores.Location = new Point(60, 511);
+            pcbTutores.Location = new Point(60, 476);
             pcbTutores.Margin = new Padding(3, 2, 3, 2);
             pcbTutores.Name = "pcbTutores";
-            pcbTutores.Size = new Size(380, 98);
+            pcbTutores.Size = new Size(380, 78);
             pcbTutores.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbTutores.TabIndex = 8;
             pcbTutores.TabStop = false;
             pcbTutores.Click += pcbTutores_Click;
+            pcbTutores.MouseDown += pcbGeneral_MouseDown;
+            pcbTutores.MouseUp += pcbGeneral_MouseUp;
             // 
             // frmPrincipal
             // 
