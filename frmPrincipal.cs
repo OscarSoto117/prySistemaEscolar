@@ -35,10 +35,12 @@ namespace prySistemaEscolar
             pcbDocentes.Parent = pcbMenu;
             pcbUsuarios.Parent = pcbMenu;
             pcbSalir.Parent = pcbMenu;
+            pcbTutores.Parent = pcbMenu;
             pcbAlumnos.BackColor = Color.Transparent;
             pcbCarreras.BackColor = Color.Transparent;
             pcbDocentes.BackColor = Color.Transparent;
             pcbUsuarios.BackColor = Color.Transparent;
+            pcbTutores.BackColor = Color.Transparent;
             pcbSalir.BackColor = Color.Transparent;
 
             //Verificando Permisos
