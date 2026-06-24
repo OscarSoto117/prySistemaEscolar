@@ -32,20 +32,17 @@
             pcbLoginFondo = new PictureBox();
             txtUsuario = new TextBox();
             txtPassword = new TextBox();
-            ptbLoginIcono = new PictureBox();
             btnAcceder = new Button();
             btnSalir = new Button();
             ((System.ComponentModel.ISupportInitialize)pcbLoginFondo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ptbLoginIcono).BeginInit();
             SuspendLayout();
             // 
             // pcbLoginFondo
             // 
             pcbLoginFondo.Image = (Image)resources.GetObject("pcbLoginFondo.Image");
-            pcbLoginFondo.Location = new Point(41, 30);
-            pcbLoginFondo.Margin = new Padding(3, 2, 3, 2);
+            pcbLoginFondo.Location = new Point(47, 40);
             pcbLoginFondo.Name = "pcbLoginFondo";
-            pcbLoginFondo.Size = new Size(364, 272);
+            pcbLoginFondo.Size = new Size(416, 363);
             pcbLoginFondo.SizeMode = PictureBoxSizeMode.StretchImage;
             pcbLoginFondo.TabIndex = 0;
             pcbLoginFondo.TabStop = false;
@@ -53,42 +50,28 @@
             // txtUsuario
             // 
             txtUsuario.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            txtUsuario.Location = new Point(449, 96);
-            txtUsuario.Margin = new Padding(3, 2, 3, 2);
+            txtUsuario.Location = new Point(513, 128);
             txtUsuario.Name = "txtUsuario";
             txtUsuario.PlaceholderText = "Nombre del usuario";
-            txtUsuario.Size = new Size(386, 50);
+            txtUsuario.Size = new Size(441, 61);
             txtUsuario.TabIndex = 1;
             // 
             // txtPassword
             // 
             txtPassword.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            txtPassword.Location = new Point(449, 149);
-            txtPassword.Margin = new Padding(3, 2, 3, 2);
+            txtPassword.Location = new Point(513, 199);
             txtPassword.Name = "txtPassword";
             txtPassword.PlaceholderText = "Contraseña del usuario";
-            txtPassword.Size = new Size(386, 50);
+            txtPassword.Size = new Size(441, 61);
             txtPassword.TabIndex = 2;
             txtPassword.UseSystemPasswordChar = true;
-            // 
-            // ptbLoginIcono
-            // 
-            ptbLoginIcono.Image = (Image)resources.GetObject("ptbLoginIcono.Image");
-            ptbLoginIcono.Location = new Point(872, 30);
-            ptbLoginIcono.Margin = new Padding(3, 2, 3, 2);
-            ptbLoginIcono.Name = "ptbLoginIcono";
-            ptbLoginIcono.Size = new Size(215, 165);
-            ptbLoginIcono.SizeMode = PictureBoxSizeMode.StretchImage;
-            ptbLoginIcono.TabIndex = 3;
-            ptbLoginIcono.TabStop = false;
             // 
             // btnAcceder
             // 
             btnAcceder.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            btnAcceder.Location = new Point(449, 218);
-            btnAcceder.Margin = new Padding(3, 2, 3, 2);
+            btnAcceder.Location = new Point(513, 291);
             btnAcceder.Name = "btnAcceder";
-            btnAcceder.Size = new Size(162, 59);
+            btnAcceder.Size = new Size(185, 57);
             btnAcceder.TabIndex = 4;
             btnAcceder.Text = "Acceder";
             btnAcceder.UseVisualStyleBackColor = true;
@@ -97,10 +80,9 @@
             // btnSalir
             // 
             btnSalir.Font = new Font("Segoe UI", 24F, FontStyle.Bold);
-            btnSalir.Location = new Point(673, 218);
-            btnSalir.Margin = new Padding(3, 2, 3, 2);
+            btnSalir.Location = new Point(769, 291);
             btnSalir.Name = "btnSalir";
-            btnSalir.Size = new Size(162, 59);
+            btnSalir.Size = new Size(185, 57);
             btnSalir.TabIndex = 5;
             btnSalir.Text = "Salir";
             btnSalir.UseVisualStyleBackColor = true;
@@ -108,21 +90,18 @@
             // 
             // frmLogin
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1107, 368);
+            ClientSize = new Size(1265, 491);
             Controls.Add(btnSalir);
             Controls.Add(btnAcceder);
-            Controls.Add(ptbLoginIcono);
             Controls.Add(txtPassword);
             Controls.Add(txtUsuario);
             Controls.Add(pcbLoginFondo);
-            Margin = new Padding(3, 2, 3, 2);
             Name = "frmLogin";
             Text = "Control de acceso";
             WindowState = FormWindowState.Minimized;
             ((System.ComponentModel.ISupportInitialize)pcbLoginFondo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ptbLoginIcono).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -132,7 +111,6 @@
         private PictureBox pcbLoginFondo;
         private TextBox txtUsuario;
         private TextBox txtPassword;
-        private PictureBox ptbLoginIcono;
         private Button btnAcceder;
         private Button btnSalir;
     }
