@@ -85,6 +85,7 @@ namespace prySistemaEscolar
             }
         }
 
+
         private void limpiar()
         {
             txtNombre.Clear();
