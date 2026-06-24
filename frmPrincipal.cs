@@ -61,10 +61,10 @@ namespace prySistemaEscolar
             principal = new clsPrincipal();
             principal.agregarAlContenedor(new frmCarreras(), pnlContenedor);
         }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pcbTutores_Click(object sender, EventArgs e)
         {
-
+            principal = new clsPrincipal();
+            principal.agregarAlContenedor(new frmTutores(), pnlContenedor);
         }
     }
 }
