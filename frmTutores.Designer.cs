@@ -62,6 +62,7 @@
             // 
             // pcbLogo
             // 
+            pcbLogo.Image = (Image)resources.GetObject("pcbLogo.Image");
             pcbLogo.Location = new Point(690, 3);
             pcbLogo.Margin = new Padding(3, 4, 3, 4);
             pcbLogo.Name = "pcbLogo";
