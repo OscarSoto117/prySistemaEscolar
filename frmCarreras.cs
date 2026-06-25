@@ -62,7 +62,7 @@ namespace prySistemaEscolar
             try
             {
                 carreras.IdCarrera = idCarrera;
-                var resp = MessageBox.Show("Confirmar que se desea guarda la informacio seleccionada", "ALERTA!!", MessageBoxButtons.YesNo);
+                var resp = MessageBox.Show("Confirmar que se desea guarda la informacio seleccionada", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resp == DialogResult.Yes)
                 {
                     int tipoOperacion = idCarrera == 0 ? 0 : 1;
@@ -93,7 +93,7 @@ namespace prySistemaEscolar
             try
             {
                 carreras.IdCarrera = idCarrera;
-                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato selccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato selccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resp == DialogResult.Yes) 
                 {
                     string msg = carreras.Eliminar();

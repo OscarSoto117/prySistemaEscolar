@@ -71,7 +71,7 @@ namespace prySistemaEscolar
             try
             {
                 tutores.IdTutor = idTutor;
-                var resp = MessageBox.Show("Confirmar que se desea guardar la informacion seleccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                var resp = MessageBox.Show("Confirmar que se desea guardar la informacion seleccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (resp == DialogResult.Yes)
                 {
                     int tipoOperacion = idTutor == 0 ? 0 : 1;
@@ -97,7 +97,7 @@ namespace prySistemaEscolar
             try
             {
                 tutores.IdTutor = idTutor;
-                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato seleccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato seleccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (resp == DialogResult.Yes)
                 {
                     string msg = tutores.Eliminar();
