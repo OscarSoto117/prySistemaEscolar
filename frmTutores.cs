@@ -70,22 +70,25 @@ namespace prySistemaEscolar
         {
             try
             {
-                tutores.IdTutor = idTutor;
-                var resp = MessageBox.Show("Confirmar que se desea guardar la informacion seleccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resp == DialogResult.Yes)
+                int tipoOperacion = idTutor == 0 ? 0 : 1;
+                if (tipoOperacion == 1)
                 {
-                    int tipoOperacion = idTutor == 0 ? 0 : 1;
-                    tutores.IdTutor = idTutor;
-                    tutores.NombreTutor = txtNombre.Text;
-                    tutores.Parentesco = txtParentesco.Text;
-                    tutores.Direccion = txtDireccion.Text;
-                    tutores.Telefono = txtTelefono.Text;
-                    tutores.Correo = txtCorreo.Text;
-
-                    string msg = tutores.GuardarActualizarRegistros(tipoOperacion);
-                    MessageBox.Show(msg);
-                    CargarGrid();
+                    var resp = MessageBox.Show("Confirmar que se desea actualizar la información seleccionada", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resp == DialogResult.No)
+                    {
+                        return;
+                    }
                 }
+
+                tutores.IdTutor = idTutor;
+                tutores.NombreTutor = txtNombre.Text;
+                tutores.Parentesco = txtParentesco.Text;
+                tutores.Direccion = txtDireccion.Text;
+                tutores.Telefono = txtTelefono.Text;
+                tutores.Correo = txtCorreo.Text;
+                string msg = tutores.GuardarActualizarRegistros(tipoOperacion);
+                MessageBox.Show(msg);
+                CargarGrid();
             }
             catch (Exception ex)
             {
@@ -97,7 +100,7 @@ namespace prySistemaEscolar
             try
             {
                 tutores.IdTutor = idTutor;
-                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato seleccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato seleccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                 if (resp == DialogResult.Yes)
                 {
                     string msg = tutores.Eliminar();

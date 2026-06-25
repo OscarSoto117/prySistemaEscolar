@@ -61,18 +61,22 @@ namespace prySistemaEscolar
         {
             try
             {
-                carreras.IdCarrera = idCarrera;
-                var resp = MessageBox.Show("Confirmar que se desea guarda la informacio seleccionada", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (resp == DialogResult.Yes)
+                int tipoOperacion = idCarrera == 0 ? 0 : 1;
+                if (tipoOperacion == 1)
                 {
-                    int tipoOperacion = idCarrera == 0 ? 0 : 1;
-                    carreras.IdCarrera = idCarrera;
-                    carreras.NombreCarrera = txtNombre.Text;
-                    carreras.DescripcionCarrera = txtDescripcion.Text;
-                    string msg = carreras.GuardarActualizarRegistros(tipoOperacion);
-                    MessageBox.Show(msg);
-                    CargarGrid();
+                    var resp = MessageBox.Show("Confirmar que se desea actualizar la información seleccionada", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                    if (resp == DialogResult.No)
+                    {
+                        return;
+                    }
                 }
+                carreras.IdCarrera = idCarrera;
+                carreras.NombreCarrera = txtNombre.Text;
+                carreras.DescripcionCarrera = txtDescripcion.Text;
+
+                string msg = carreras.GuardarActualizarRegistros(tipoOperacion);
+                MessageBox.Show(msg);
+                CargarGrid();
             }
             catch (Exception ex)
             {
@@ -93,7 +97,7 @@ namespace prySistemaEscolar
             try
             {
                 carreras.IdCarrera = idCarrera;
-                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato selccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato selccionado", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
                 if (resp == DialogResult.Yes) 
                 {
                     string msg = carreras.Eliminar();
