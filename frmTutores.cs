@@ -6,114 +6,128 @@ namespace prySistemaEscolar
 {
     public partial class frmTutores : Form
     {
-        clsTutores tutor = new clsTutores();
-        int tipoOperacion = 0;
+        int idTutor;
+        clsTutores tutores;
 
         public frmTutores()
         {
             InitializeComponent();
+            CargarGrid();
         }
+        public void CargarGrid()
+        {
+            tutores = new clsTutores();
+            dgvTutores.DataSource = null;
+            dgvTutores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            try
+            {
+                dgvTutores.DataSource = tutores.CargarDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+        private void txtBuscarTutores_TextChanged(object sender, EventArgs e)
+        {
+            tutores = new clsTutores();
+            dgvTutores.DataSource = null;
+            dgvTutores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            try
+            {
+                tutores.NombreTutor = txtBuscarTutores.Text;
+                dgvTutores.DataSource = tutores.ConsultarCoincidencias();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
 
-        private void frmTutores_Load(object sender, EventArgs e)
+        }
+        private void dgvTutores_SelectionChanged(object sender, EventArgs e)
         {
             try
             {
-                dgvTutores.DataSource = tutor.CargarDataGrid();
+                // Validación para evitar errores si la tabla está vacía
+                if (dgvTutores.CurrentRow != null)
+                {
+                    //Campo de referencia para actualizar y eliminar registros(oculto)
+                    idTutor = int.Parse(dgvTutores.CurrentRow.Cells[0].Value.ToString());
+
+                    //Campos de referencia para actualizar y eliminar registros(visible)
+                    txtNombre.Text = dgvTutores.CurrentRow.Cells[1].Value.ToString();
+                    txtParentesco.Text = dgvTutores.CurrentRow.Cells[2].Value.ToString();
+                    txtDireccion.Text = dgvTutores.CurrentRow.Cells[3].Value.ToString();
+                    txtTelefono.Text = dgvTutores.CurrentRow.Cells[4].Value.ToString();
+                    txtCorreo.Text = dgvTutores.CurrentRow.Cells[5].Value.ToString();
+                }
             }
-            catch (Exception ex) { MessageBox.Show("Error de conexión: " + ex.Message); }
+            catch { }
+
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             try
             {
-                tutor.NombreTutor = txtNombre.Text;
-                tutor.Parentesco = txtParentesco.Text;
-                tutor.Direccion = txtDireccion.Text;
-                tutor.Telefono = txtTelefono.Text;
-                tutor.Correo = txtCorreo.Text;
-
-                string mensaje = tutor.GuardarActualizarRegistros(tipoOperacion);
-                MessageBox.Show(mensaje, "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                dgvTutores.DataSource = tutor.CargarDataGrid();
-                limpiar();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void btnEliminar_Click(object sender, EventArgs e)
-        {
-            if (tutor.IdTutor == 0)
-            {
-                MessageBox.Show("Seleccione un tutor de la tabla primero.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
-            if (MessageBox.Show("¿Está seguro de eliminar este tutor?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            {
-                try
+                tutores.IdTutor = idTutor;
+                var resp = MessageBox.Show("Confirmar que se desea guardar la informacion seleccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                if (resp == DialogResult.Yes)
                 {
-                    string mensaje = tutor.Eliminar();
-                    MessageBox.Show(mensaje, "Sistema", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    dgvTutores.DataSource = tutor.CargarDataGrid();
-                    limpiar();
+                    int tipoOperacion = idTutor == 0 ? 0 : 1;
+                    tutores.IdTutor = idTutor;
+                    tutores.NombreTutor = txtNombre.Text;
+                    tutores.Parentesco = txtParentesco.Text;
+                    tutores.Direccion = txtDireccion.Text;
+                    tutores.Telefono = txtTelefono.Text;
+                    tutores.Correo = txtCorreo.Text;
+
+                    string msg = tutores.GuardarActualizarRegistros(tipoOperacion);
+                    MessageBox.Show(msg);
+                    CargarGrid();
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
-            }
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            limpiar();
-        }
-
-        private void dgvTutores_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-                DataGridViewRow fila = dgvTutores.Rows[e.RowIndex];
-
-                tutor.IdTutor = Convert.ToInt32(fila.Cells["Clave"].Value);
-                txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
-                txtParentesco.Text = fila.Cells["Parentesco"].Value.ToString();
-                txtDireccion.Text = fila.Cells["Dirección"].Value.ToString();
-                txtTelefono.Text = fila.Cells["Teléfono"].Value.ToString();
-                txtCorreo.Text = fila.Cells["Correo"].Value.ToString();
-
-                tipoOperacion = 1;
-            }
-        }
-
-        private void limpiar()
-        {
-            txtNombre.Clear();
-            txtParentesco.Clear();
-            txtDireccion.Clear();
-            txtTelefono.Clear();
-            txtCorreo.Clear();
-
-            tipoOperacion = 0;
-            tutor.IdTutor = 0;
-            txtNombre.Focus();
-        }
-
-        private void lblTitulo_Click(object sender, EventArgs e) { }
-        private void pnlAgrupaControles_Paint(object sender, PaintEventArgs e) { }
-
-        private void txtBuscarTutores_TextChanged(object sender, EventArgs e)
-        {
-            dgvTutores.DataSource = null;
-            dgvTutores.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            try
-            {
-                tutor.NombreTutor = txtBuscarTutores.Text;
-                dgvTutores.DataSource = tutor.ConsultarCoincidencias();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                tutores.IdTutor = idTutor;
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato seleccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                if (resp == DialogResult.Yes)
+                {
+                    string msg = tutores.Eliminar();
+                    MessageBox.Show(msg);
+                    CargarGrid();
+
+                    // Se limpian las cajas después de eliminar
+                    idTutor = 0;
+                    txtNombre.Clear();
+                    txtParentesco.Clear();
+                    txtDireccion.Clear();
+                    txtTelefono.Clear();
+                    txtCorreo.Clear();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            idTutor = 0;
+            txtNombre.Clear();
+            txtParentesco.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
+            txtNombre.Focus();
         }
     }
 }

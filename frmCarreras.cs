@@ -61,13 +61,18 @@ namespace prySistemaEscolar
         {
             try
             {
-                int tipoOperacion = idCarrera == 0 ? 0 : 1;
                 carreras.IdCarrera = idCarrera;
-                carreras.NombreCarrera = txtNombre.Text;
-                carreras.DescripcionCarrera = txtDescripcion.Text;
-                string msg = carreras.GuardarActualizarRegistros(tipoOperacion);
-                MessageBox.Show(msg);
-                CargarGrid();
+                var resp = MessageBox.Show("Confirmar que se desea guarda la informacio seleccionada", "ALERTA!!", MessageBoxButtons.YesNo);
+                if (resp == DialogResult.Yes)
+                {
+                    int tipoOperacion = idCarrera == 0 ? 0 : 1;
+                    carreras.IdCarrera = idCarrera;
+                    carreras.NombreCarrera = txtNombre.Text;
+                    carreras.DescripcionCarrera = txtDescripcion.Text;
+                    string msg = carreras.GuardarActualizarRegistros(tipoOperacion);
+                    MessageBox.Show(msg);
+                    CargarGrid();
+                }
             }
             catch (Exception ex)
             {
@@ -88,7 +93,7 @@ namespace prySistemaEscolar
             try
             {
                 carreras.IdCarrera = idCarrera;
-                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato sdelccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                var resp = MessageBox.Show("Confirmar que se desea eliminar el dato selccionado", "ALERTA!!", MessageBoxButtons.YesNo);
                 if (resp == DialogResult.Yes) 
                 {
                     string msg = carreras.Eliminar();
