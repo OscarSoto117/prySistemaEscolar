@@ -160,6 +160,7 @@
             dgvCarreras.Location = new Point(177, 464);
             dgvCarreras.Margin = new Padding(3, 4, 3, 4);
             dgvCarreras.Name = "dgvCarreras";
+            dgvCarreras.ReadOnly = true;
             dgvCarreras.RowHeadersWidth = 51;
             dgvCarreras.RowTemplate.Height = 35;
             dgvCarreras.Size = new Size(845, 225);

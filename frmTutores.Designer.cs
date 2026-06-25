@@ -62,7 +62,6 @@
             // 
             // pcbLogo
             // 
-            pcbLogo.Image = (Image)resources.GetObject("pcbLogo.Image");
             pcbLogo.Location = new Point(690, 3);
             pcbLogo.Margin = new Padding(3, 4, 3, 4);
             pcbLogo.Name = "pcbLogo";
@@ -175,6 +174,7 @@
             // 
             // dgvTutores
             // 
+            dgvTutores.AllowUserToAddRows = false;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = Color.GreenYellow;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -205,13 +205,9 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvTutores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-
             dgvTutores.RowHeadersVisible = false;
-            dgvTutores.Size = new Size(733, 142);
-
             dgvTutores.RowHeadersWidth = 51;
             dgvTutores.Size = new Size(838, 189);
-
             dgvTutores.TabIndex = 5;
             dgvTutores.SelectionChanged += dgvTutores_SelectionChanged;
             // 
@@ -228,6 +224,7 @@
             // 
             // frmTutores
             // 
+            AllowDrop = true;
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1218, 725);
