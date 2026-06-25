@@ -196,6 +196,7 @@
             dgvTutores.Location = new Point(194, 528);
             dgvTutores.Margin = new Padding(3, 4, 3, 4);
             dgvTutores.Name = "dgvTutores";
+            dgvTutores.ReadOnly = true;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = SystemColors.Control;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
@@ -204,8 +205,13 @@
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvTutores.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+
+            dgvTutores.RowHeadersVisible = false;
+            dgvTutores.Size = new Size(733, 142);
+
             dgvTutores.RowHeadersWidth = 51;
             dgvTutores.Size = new Size(838, 189);
+
             dgvTutores.TabIndex = 5;
             dgvTutores.SelectionChanged += dgvTutores_SelectionChanged;
             // 
