@@ -70,17 +70,22 @@ namespace prySistemaEscolar
         {
             try
             {
-                int tipoOperacion = idTutor == 0 ? 0 : 1;
                 tutores.IdTutor = idTutor;
-                tutores.NombreTutor = txtNombre.Text;
-                tutores.Parentesco = txtParentesco.Text;
-                tutores.Direccion = txtDireccion.Text;
-                tutores.Telefono = txtTelefono.Text;
-                tutores.Correo = txtCorreo.Text;
+                var resp = MessageBox.Show("Confirmar que se desea guardar la informacion seleccionado", "ALERTA!!", MessageBoxButtons.YesNo);
+                if (resp == DialogResult.Yes)
+                {
+                    int tipoOperacion = idTutor == 0 ? 0 : 1;
+                    tutores.IdTutor = idTutor;
+                    tutores.NombreTutor = txtNombre.Text;
+                    tutores.Parentesco = txtParentesco.Text;
+                    tutores.Direccion = txtDireccion.Text;
+                    tutores.Telefono = txtTelefono.Text;
+                    tutores.Correo = txtCorreo.Text;
 
-                string msg = tutores.GuardarActualizarRegistros(tipoOperacion);
-                MessageBox.Show(msg);
-                CargarGrid();
+                    string msg = tutores.GuardarActualizarRegistros(tipoOperacion);
+                    MessageBox.Show(msg);
+                    CargarGrid();
+                }
             }
             catch (Exception ex)
             {
