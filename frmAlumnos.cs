@@ -10,9 +10,25 @@ namespace prySistemaEscolar
 {
     public partial class frmAlumnos : Form
     {
+        clsAlumnos alumnos;
         public frmAlumnos()
         {
             InitializeComponent();
+            CargarGrid();
+        }
+        public void CargarGrid()
+        {
+            alumnos = new clsAlumnos();
+            dgvAlumnos.DataSource = null;
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            try
+            {
+                dgvAlumnos.DataSource = alumnos.CargarDataGrid();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
