@@ -15,7 +15,7 @@ namespace prySistemaEscolar
             {
                 if(login.ShowDialog() == DialogResult.OK)
                 {
-                    Application.Run(new frmPrincipal());
+                    Application.Run(new frmAlumnos());
                 }
             }
         }

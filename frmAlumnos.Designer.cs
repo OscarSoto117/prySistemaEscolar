@@ -33,8 +33,8 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             txtMatricula = new TextBox();
             txtNombre = new TextBox();
-            APaterno = new TextBox();
-            AMaterno = new TextBox();
+            txtAPaterno = new TextBox();
+            txtAMaterno = new TextBox();
             txtDireccion = new TextBox();
             txtTelefono = new TextBox();
             txtCorreo = new TextBox();
@@ -79,23 +79,23 @@
             txtNombre.Size = new Size(232, 33);
             txtNombre.TabIndex = 1;
             // 
-            // APaterno
+            // txtAPaterno
             // 
-            APaterno.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            APaterno.Location = new Point(18, 93);
-            APaterno.Name = "APaterno";
-            APaterno.PlaceholderText = "Apellido Paterno";
-            APaterno.Size = new Size(232, 33);
-            APaterno.TabIndex = 2;
+            txtAPaterno.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            txtAPaterno.Location = new Point(18, 93);
+            txtAPaterno.Name = "txtAPaterno";
+            txtAPaterno.PlaceholderText = "Apellido Paterno";
+            txtAPaterno.Size = new Size(232, 33);
+            txtAPaterno.TabIndex = 2;
             // 
-            // AMaterno
+            // txtAMaterno
             // 
-            AMaterno.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            AMaterno.Location = new Point(18, 132);
-            AMaterno.Name = "AMaterno";
-            AMaterno.PlaceholderText = "Apellido Materno";
-            AMaterno.Size = new Size(232, 33);
-            AMaterno.TabIndex = 3;
+            txtAMaterno.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            txtAMaterno.Location = new Point(18, 132);
+            txtAMaterno.Name = "txtAMaterno";
+            txtAMaterno.PlaceholderText = "Apellido Materno";
+            txtAMaterno.Size = new Size(232, 33);
+            txtAMaterno.TabIndex = 3;
             // 
             // txtDireccion
             // 
@@ -163,8 +163,8 @@
             pnlAlumno.Controls.Add(txtTelefono);
             pnlAlumno.Controls.Add(txtNombre);
             pnlAlumno.Controls.Add(txtDireccion);
-            pnlAlumno.Controls.Add(APaterno);
-            pnlAlumno.Controls.Add(AMaterno);
+            pnlAlumno.Controls.Add(txtAPaterno);
+            pnlAlumno.Controls.Add(txtAMaterno);
             pnlAlumno.Location = new Point(89, 110);
             pnlAlumno.Name = "pnlAlumno";
             pnlAlumno.Size = new Size(553, 220);
@@ -273,10 +273,10 @@
             // 
             dgvAlumnos.AllowUserToAddRows = false;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.GreenYellow;
+            dataGridViewCellStyle3.BackColor = Color.PaleTurquoise;
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.Teal;
+            dataGridViewCellStyle3.SelectionBackColor = Color.SteelBlue;
             dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgvAlumnos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
@@ -297,6 +297,7 @@
             dgvAlumnos.RowTemplate.Height = 35;
             dgvAlumnos.Size = new Size(739, 140);
             dgvAlumnos.TabIndex = 16;
+            dgvAlumnos.SelectionChanged += dgvAlumnos_SelectionChanged;
             // 
             // pcbLogo
             // 
@@ -350,8 +351,8 @@
 
         private TextBox txtMatricula;
         private TextBox txtNombre;
-        private TextBox APaterno;
-        private TextBox AMaterno;
+        private TextBox txtAPaterno;
+        private TextBox txtAMaterno;
         private TextBox txtDireccion;
         private TextBox txtTelefono;
         private TextBox txtCorreo;
