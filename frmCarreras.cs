@@ -61,7 +61,7 @@ namespace prySistemaEscolar
         {
             try
             {
-                int tipoOperacion = idCarrera == 0 ? 0 : 1;
+                int tipoOperacion = idCarrera == 0 ? 0 : 1;//condicion ternaria
                 if (tipoOperacion == 1)
                 {
                     var resp = MessageBox.Show("Confirmar que se desea actualizar la información seleccionada", "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
