@@ -43,7 +43,7 @@
             cmbCarrera = new ComboBox();
             pnlAlumno = new Panel();
             lblAlumos = new Label();
-            panel1 = new Panel();
+            pnlUsuario = new Panel();
             txtPassword = new TextBox();
             cmbPerfil = new ComboBox();
             txtUsuario = new TextBox();
@@ -56,7 +56,7 @@
             pcbLogo = new PictureBox();
             lblTitulo = new Label();
             pnlAlumno.SuspendLayout();
-            panel1.SuspendLayout();
+            pnlUsuario.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pcbLogo).BeginInit();
             SuspendLayout();
@@ -180,17 +180,17 @@
             lblAlumos.TabIndex = 11;
             lblAlumos.Text = "Alumnos";
             // 
-            // panel1
+            // pnlUsuario
             // 
-            panel1.BackColor = SystemColors.ActiveCaption;
-            panel1.BorderStyle = BorderStyle.Fixed3D;
-            panel1.Controls.Add(txtPassword);
-            panel1.Controls.Add(cmbPerfil);
-            panel1.Controls.Add(txtUsuario);
-            panel1.Location = new Point(694, 109);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(272, 221);
-            panel1.TabIndex = 12;
+            pnlUsuario.BackColor = SystemColors.ActiveCaption;
+            pnlUsuario.BorderStyle = BorderStyle.Fixed3D;
+            pnlUsuario.Controls.Add(txtPassword);
+            pnlUsuario.Controls.Add(cmbPerfil);
+            pnlUsuario.Controls.Add(txtUsuario);
+            pnlUsuario.Location = new Point(694, 109);
+            pnlUsuario.Name = "pnlUsuario";
+            pnlUsuario.Size = new Size(272, 221);
+            pnlUsuario.TabIndex = 12;
             // 
             // txtPassword
             // 
@@ -331,7 +331,7 @@
             Controls.Add(txtBuscarAlumno);
             Controls.Add(dgvAlumnos);
             Controls.Add(lblUsuario);
-            Controls.Add(panel1);
+            Controls.Add(pnlUsuario);
             Controls.Add(lblAlumos);
             Controls.Add(pnlAlumno);
             Controls.Add(pcbLogo);
@@ -339,8 +339,8 @@
             Text = "frmAlumnos";
             pnlAlumno.ResumeLayout(false);
             pnlAlumno.PerformLayout();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
+            pnlUsuario.ResumeLayout(false);
+            pnlUsuario.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvAlumnos).EndInit();
             ((System.ComponentModel.ISupportInitialize)pcbLogo).EndInit();
             ResumeLayout(false);
@@ -361,7 +361,7 @@
         private ComboBox cmbCarrera;
         private Panel pnlAlumno;
         private Label lblAlumos;
-        private Panel panel1;
+        private Panel pnlUsuario;
         private TextBox txtPassword;
         private ComboBox cmbPerfil;
         private TextBox txtUsuario;
