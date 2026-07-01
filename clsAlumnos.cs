@@ -79,5 +79,51 @@ namespace prySistemaEscolar
             }
             return tabla;
         }
+
+        //para el combo de carreras
+        public DataTable ObtenerCarreras()
+        {
+            tabla = new DataTable();
+            try
+            {
+                clsConexion conexionBD = new clsConexion();
+                using (var conexion = conexionBD.AbrirConexion())
+                {
+                    string sql = "SELECT idCarrera, nombreCarrera FROM tblcarreras;";
+                    using (consulta = new MySqlDataAdapter(sql, conexion))
+                    {
+                        consulta.Fill(tabla);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el catálogo de carreras: " + ex.Message);
+            }
+            return tabla;
+        }
+        // Método para el combo de tutores
+        public DataTable ObtenerTutores()
+        {
+            tabla = new DataTable();
+            try
+            {
+                clsConexion conexionBD = new clsConexion();
+                using (var conexion = conexionBD.AbrirConexion())
+                {
+                    string sql = "SELECT idTutor, nombreTutor FROM tbltutores;";
+                    using (consulta = new MySqlDataAdapter(sql, conexion))
+                    {
+                        consulta.Fill(tabla);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error al obtener el catálogo de tutores: " + ex.Message);
+            }
+            return tabla;
+        }
+
     }
 }
