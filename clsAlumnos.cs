@@ -162,7 +162,7 @@ namespace prySistemaEscolar
                                      "FROM tblalumnos A " +
                                      "INNER JOIN tblcarreras C ON A.idCarrera = C.idCarrera " +
                                      "INNER JOIN tbltutores T ON A.idTutor = T.idTutor " +
-                                     "INNER JOIN tblusuarios U ON A.idUsuario = U.intidUsuario WHERE A.nombreAlumno LIKE @matricula";
+                                     "INNER JOIN tblusuarios U ON A.idUsuario = U.intidUsuario WHERE A.matricula LIKE @matricula";
 
                     using (var consultar = new MySqlCommand(sql, conexion))
                     {
