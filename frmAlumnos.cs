@@ -117,6 +117,16 @@ namespace prySistemaEscolar
             }
         }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            idMatricula = 0;
+            idUsuario = 0;
+            alumnos.LimpiarPanel(pnlAlumno);
+            alumnos.LimpiarPanel(pnlUsuario);
+            txtMatricula.Focus();
+
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             idMatricula = 0;
@@ -124,6 +134,27 @@ namespace prySistemaEscolar
             alumnos.LimpiarPanel(pnlAlumno);
             alumnos.LimpiarPanel(pnlUsuario);
             txtMatricula.Focus();
+        }
+
+        private void txtBuscarAlumno_TextChanged(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtMatriculaAlumno.Text)) ;
+            {
+                CargarGrid();
+                return;
+            }
+            alumnos = new clsAlumnos();
+            dgvAlumnos.DataSource = null;
+            dgvAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            try
+            {
+                alumnos.Matricula = int.Parse(txtMatriculaAlumno.Text);
+                dgvAlumnos.DataSource = alumnos.Consultar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Requiere asignar datos" + ex.Message);
+            }
         }
     }
 }
