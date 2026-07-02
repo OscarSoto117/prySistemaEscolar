@@ -40,6 +40,11 @@ namespace prySistemaEscolar
                 dgvAlumnos.Columns["idTutor"].Visible = false;
                 dgvAlumnos.Columns["idCarrera"].Visible = false;
                 dgvAlumnos.Columns["idUsuario"].Visible = false;
+                foreach (DataGridViewColumn columna in dgvAlumnos.Columns)
+                {
+                    columna.SortMode = DataGridViewColumnSortMode.NotSortable;
+                }
+
             }
             catch (Exception ex)
             {
