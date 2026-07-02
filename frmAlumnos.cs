@@ -16,8 +16,9 @@ namespace prySistemaEscolar
         public frmAlumnos()
         {
             InitializeComponent();
-            CargarGrid();
             CargarCombos();
+            CargarGrid();
+            
         }
         public void CargarGrid()
         {
@@ -69,9 +70,9 @@ namespace prySistemaEscolar
                 DataTable dtTutores = alumnos.ObtenerTutores();
                 // Creamos la fila del placeholder para la Carrera
                 DataRow filaPTutores = dtTutores.NewRow();
-                filaPCarrera["idTutor"] = 0;
-                filaPCarrera["nombreTutor"] = "-- Selecciona una tutor --";
-                dtCarreras.Rows.InsertAt(filaPCarrera, 0); // Insertar al inicio de la lista
+                filaPTutores["idTutor"] = 0;
+                filaPTutores["nombreTutor"] = "-- Selecciona una tutor --";
+                dtTutores.Rows.InsertAt(filaPTutores, 0); // Insertar al inicio de la lista
                                                            // Enlazamos los datos al ComboBox visual
                 cmbTutor.DataSource = dtTutores;
                 cmbTutor.DisplayMember = "nombreTutor";     // El texto visible
@@ -138,7 +139,7 @@ namespace prySistemaEscolar
 
         private void txtBuscarAlumno_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMatriculaAlumno.Text)) ;
+            if (string.IsNullOrEmpty(txtMatriculaAlumno.Text)) 
             {
                 CargarGrid();
                 return;
