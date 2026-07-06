@@ -18,7 +18,7 @@ namespace prySistemaEscolar
             InitializeComponent();
             CargarCombos();
             CargarGrid();
-            
+
         }
         public void CargarGrid()
         {
@@ -78,7 +78,7 @@ namespace prySistemaEscolar
                 filaPTutores["idTutor"] = 0;
                 filaPTutores["nombreTutor"] = "-- Selecciona una tutor --";
                 dtTutores.Rows.InsertAt(filaPTutores, 0); // Insertar al inicio de la lista
-                                                           // Enlazamos los datos al ComboBox visual
+                                                          // Enlazamos los datos al ComboBox visual
                 cmbTutor.DataSource = dtTutores;
                 cmbTutor.DisplayMember = "nombreTutor";     // El texto visible
                 cmbTutor.ValueMember = "idTutor";           // La llave primaria real
@@ -188,7 +188,7 @@ namespace prySistemaEscolar
 
         private void txtBuscarAlumno_TextChanged(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(txtMatriculaAlumno.Text)) 
+            if (string.IsNullOrEmpty(txtMatriculaAlumno.Text))
             {
                 CargarGrid();
                 return;
@@ -204,6 +204,29 @@ namespace prySistemaEscolar
             catch (Exception ex)
             {
                 MessageBox.Show("Requiere asignar datos" + ex.Message);
+            }
+        }
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+           var respuesta = MessageBox.Show($"¿Desea eliminar el alumno con Matrícula: {idMatricula}?\nEsta acción borrará definitivamente su cuanta de usuario.",
+               "¡ADVERTENCIA!", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+
+            if (respuesta == DialogResult.Yes)
+            {
+                try
+                {
+                    alumnos = new clsAlumnos();
+                    alumnos.Matricula = idMatricula;
+                    alumnos.IdUsuario = idUsuario;
+                    string resultado = alumnos.Eliminar();
+                    MessageBox.Show(resultado, "Registro Eliminado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    CargarGrid(); // Refrescamos la tabla del formulario para ver los cambios
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ocurrió un error al eliminar: " + ex.Message,
+                        "Error Operacional", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

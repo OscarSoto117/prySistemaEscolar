@@ -293,5 +293,52 @@ namespace prySistemaEscolar
 
             return msg;
         }
+        //Metodo para borrar
+        public string Eliminar()
+        {
+            string msg = "";
+            clsConexion conexionBD = new clsConexion();
+            try
+            {
+                using (var conexion = conexionBD.AbrirConexion())
+                {
+                    using (var transaccion = conexion.BeginTransaction())
+                    {
+                        try
+                        {
+                            //Se elimina el alumno
+                            string sqlDelAlumno = "DELETE FROM tblalumnos WHERE matricula = @matricula;";
+                            using (comando = new MySqlCommand(sqlDelAlumno, conexion, transaccion))
+                            {
+                                comando.Parameters.AddWithValue("@matricula", matricula);
+                                comando.ExecuteNonQuery();
+                            }
+                            //Se elimina el usuario
+                            string sqlDelUsuario = "DELETE FROM tblusuarios WHERE intidUsuario = @idusuario;";
+                            using (var comandoUsuario = new MySqlCommand(sqlDelUsuario, conexion, transaccion))
+                            {
+                                comandoUsuario.Parameters.AddWithValue("@idusuario", idUsuario);
+                                comandoUsuario.ExecuteNonQuery();
+                            }
+                            //Se elimina correctamente
+                            transaccion.Commit();
+                            msg = "El alumno y sus credenciales de usuario han sido eliminados del sistema";
+                        }
+                        catch (Exception ex)
+                        {
+                            //Si algo llega ha fallar, se deshacen las operaciones para no dejar datos huerfanos
+                            transaccion.Rollback();
+                            throw new Exception("No se pudo llevar a cabo la eliminación. Cambios reventidos" + ex.Message);
+                        }
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error" + ex.Message);
+            }
+            return msg;
+        }
     }
 }
