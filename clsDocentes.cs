@@ -151,7 +151,7 @@ namespace prySistemaEscolar
                                     using (comando = new MySqlCommand(sqlInsUser, conexion, transaccion))
                                     {
                                         comando.Parameters.AddWithValue("@nomUser", nombreUsuario);
-                                        comando.Parameters.AddWithValue("@pass", password);
+                                        comando.Parameters.AddWithValue("@pass", string.IsNullOrEmpty(password) ? "" : password);
                                         comando.Parameters.AddWithValue("@perfil", perfil);
                                         nuevoIdUsuario = Convert.ToInt32(comando.ExecuteScalar());
                                     }
