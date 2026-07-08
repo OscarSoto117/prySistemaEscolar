@@ -56,7 +56,6 @@ namespace prySistemaEscolar
                 cmbPuesto.SelectedIndex = 0; // Forzar a que muestre el placeholder
 
                 cmbPerfil.Items.Clear();
-                cmbPerfil.Items.Add("-- Selecciona un Perfil --");
                 cmbPerfil.Items.Add("Administrador");
                 cmbPerfil.Items.Add("Docente");
                 cmbPerfil.SelectedIndex = 0; // Forzar a que muestre el placeholder
@@ -111,15 +110,15 @@ namespace prySistemaEscolar
 
                 // 1. Llenamos las propiedades del bloque Docente
                 docentes.ClaveDocente = idClaveDocente; // Si es 0, no afecta porque es Auto Incrementable en el Insert
-                docentes.NombreDocente = txtNombre.Text;
+                docentes.NombreDocente = string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text;
                 docentes.Puesto = cmbPuesto.Text;
-                docentes.Telefono = txtTelefono.Text;
-                docentes.Correo = txtCorreo.Text;
+                docentes.Telefono = string.IsNullOrEmpty(txtTelefono.Text) ? null : txtTelefono.Text;
+                docentes.Correo = string.IsNullOrEmpty(txtCorreo.Text) ? null: txtCorreo.Text;
 
                 // 2. Llenamos las propiedades del bloque Usuario
                 docentes.IdUsuario = idUsuario; // Será 0 si es nuevo, o el ID real si es update
-                docentes.NombreUsuario = txtUsuario.Text;
-                docentes.Password = txtPassword.Text;
+                docentes.NombreUsuario = string.IsNullOrEmpty(txtUsuario.Text) ? null : txtUsuario.Text;
+                docentes.Password = string.IsNullOrEmpty(txtPassword.Text) ? null : txtPassword.Text;
                 docentes.Perfil = cmbPerfil.Text;
 
                 string msg = "";
