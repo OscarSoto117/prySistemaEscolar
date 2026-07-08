@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDocentes));
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             lblTitulo = new Label();
             btnGuardar = new Button();
             btnEliminar = new Button();
@@ -44,7 +44,7 @@
             txtUsuario = new TextBox();
             lblDocentes = new Label();
             pnlDocente = new Panel();
-            cmbPuesto = new ComboBox();
+            txtPuesto = new TextBox();
             txtCorreo = new TextBox();
             txtTelefono = new TextBox();
             txtNombre = new TextBox();
@@ -115,23 +115,23 @@
             // dgvDocentes
             // 
             dgvDocentes.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.PaleTurquoise;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.SteelBlue;
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.PaleTurquoise;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.SteelBlue;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvDocentes.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvDocentes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.Window;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            dgvDocentes.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvDocentes.DefaultCellStyle = dataGridViewCellStyle2;
             dgvDocentes.EnableHeadersVisualStyles = false;
             dgvDocentes.Location = new Point(259, 515);
             dgvDocentes.Margin = new Padding(3, 4, 3, 4);
@@ -181,7 +181,7 @@
             // 
             cmbPerfil.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
             cmbPerfil.FormattingEnabled = true;
-            cmbPerfil.Location = new Point(25, 121);
+            cmbPerfil.Location = new Point(25, 120);
             cmbPerfil.Margin = new Padding(3, 4, 3, 4);
             cmbPerfil.Name = "cmbPerfil";
             cmbPerfil.Size = new Size(290, 40);
@@ -211,7 +211,7 @@
             // 
             pnlDocente.BackColor = SystemColors.ActiveCaption;
             pnlDocente.BorderStyle = BorderStyle.Fixed3D;
-            pnlDocente.Controls.Add(cmbPuesto);
+            pnlDocente.Controls.Add(txtPuesto);
             pnlDocente.Controls.Add(txtCorreo);
             pnlDocente.Controls.Add(txtTelefono);
             pnlDocente.Controls.Add(txtNombre);
@@ -221,15 +221,15 @@
             pnlDocente.Size = new Size(417, 292);
             pnlDocente.TabIndex = 21;
             // 
-            // cmbPuesto
+            // txtPuesto
             // 
-            cmbPuesto.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
-            cmbPuesto.FormattingEnabled = true;
-            cmbPuesto.Location = new Point(21, 166);
-            cmbPuesto.Margin = new Padding(3, 4, 3, 4);
-            cmbPuesto.Name = "cmbPuesto";
-            cmbPuesto.Size = new Size(290, 40);
-            cmbPuesto.TabIndex = 9;
+            txtPuesto.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold);
+            txtPuesto.Location = new Point(21, 166);
+            txtPuesto.Margin = new Padding(3, 4, 3, 4);
+            txtPuesto.Name = "txtPuesto";
+            txtPuesto.PlaceholderText = "Puesto";
+            txtPuesto.Size = new Size(290, 39);
+            txtPuesto.TabIndex = 32;
             // 
             // txtCorreo
             // 
@@ -315,10 +315,10 @@
         private TextBox txtUsuario;
         private Label lblDocentes;
         private Panel pnlDocente;
-        private ComboBox cmbPuesto;
         private TextBox txtCorreo;
         private TextBox txtTelefono;
         private TextBox txtNombre;
         private PictureBox pcbLogo;
+        private TextBox txtPuesto;
     }
 }

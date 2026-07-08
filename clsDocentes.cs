@@ -82,7 +82,7 @@ namespace prySistemaEscolar
                 }
                 else if (control is ComboBox)
                 {
-                    ((ComboBox)control).SelectedIndex = 0;
+                    ((ComboBox)control).SelectedIndex = 1;
                 }
             }
         }

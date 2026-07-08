@@ -16,8 +16,8 @@ namespace prySistemaEscolar
         public frmDocentes()
         {
             InitializeComponent();
-            CargarCombos();
             CargarGrid();
+            CargarCombos();
         }
         public void CargarGrid()
         {
@@ -47,18 +47,13 @@ namespace prySistemaEscolar
         }
         public void CargarCombos()
         {
+            docentes = new clsDocentes();
+
             try
             {
-                cmbPuesto.Items.Clear();
-                cmbPuesto.Items.Add("-- Selecciona un Puesto --");
-                cmbPuesto.Items.Add("Profesor");
-                cmbPuesto.Items.Add("Coordinador");
-                cmbPuesto.SelectedIndex = 0; // Forzar a que muestre el placeholder
-
                 cmbPerfil.Items.Clear();
-                cmbPerfil.Items.Add("Administrador");
                 cmbPerfil.Items.Add("Docente");
-                cmbPerfil.SelectedIndex = 0; // Forzar a que muestre el placeholder
+                cmbPerfil.Items.Add("Administrador");
             }
             catch (Exception ex)
             {
@@ -77,7 +72,7 @@ namespace prySistemaEscolar
                 txtNombre.Text = dgvDocentes.CurrentRow.Cells["Nombre"].Value.ToString();
                 txtTelefono.Text = dgvDocentes.CurrentRow.Cells["Teléfono"].Value.ToString();
                 txtCorreo.Text = dgvDocentes.CurrentRow.Cells["Correo"].Value.ToString();
-                cmbPuesto.Text = dgvDocentes.CurrentRow.Cells["Puesto"].Value.ToString();
+                txtPuesto.Text = dgvDocentes.CurrentRow.Cells["Puesto"].Value.ToString();
 
                 // Esto es para la tabla Usuarios
                 txtUsuario.Text = dgvDocentes.CurrentRow.Cells["Usuario"].Value.ToString();
@@ -111,7 +106,7 @@ namespace prySistemaEscolar
                 // 1. Llenamos las propiedades del bloque Docente
                 docentes.ClaveDocente = idClaveDocente; // Si es 0, no afecta porque es Auto Incrementable en el Insert
                 docentes.NombreDocente = string.IsNullOrEmpty(txtNombre.Text) ? null : txtNombre.Text;
-                docentes.Puesto = cmbPuesto.Text;
+                docentes.Puesto = txtPuesto.Text;
                 docentes.Telefono = string.IsNullOrEmpty(txtTelefono.Text) ? null : txtTelefono.Text;
                 docentes.Correo = string.IsNullOrEmpty(txtCorreo.Text) ? null: txtCorreo.Text;
 
@@ -122,7 +117,6 @@ namespace prySistemaEscolar
                 docentes.Perfil = cmbPerfil.Text;
 
                 string msg = "";
-
                 // Si es una modificación (tipoOperacion = 1), pedimos confirmación como en alumnos
                 if (tipoOperacion == 1)
                 {
